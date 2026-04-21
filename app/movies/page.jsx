@@ -17,14 +17,12 @@ export default function MoviesPage() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        // 1. Supabase'dan barcha tmdb_id larni olamiz
         const { data: dbMovies, error } = await supabase
           .from("movies")
           .select("tmdb_id");
 
         if (error) throw error;
 
-        // 2. Har bir id uchun TMDB dan ma'lumot olamiz
         const moviesData = await Promise.all(
           dbMovies.map((m) =>
             fetch(

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "next/navigation";
-import { supabase } from "@/lib/supabase"; // Supabase ulanishi
+import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
 export default function Watch() {
@@ -12,7 +12,7 @@ export default function Watch() {
   const [trailer, setTrailer] = useState(null);
   const [openTrailer, setOpenTrailer] = useState(false);
   const [scroll, setScroll] = useState(false);
-  const [driveId, setDriveId] = useState(null); // Supabase'dan keladigan ID uchun
+  const [driveId, setDriveId] = useState(null);
 
   const videoRef = useRef(null);
   const API = process.env.NEXT_PUBLIC_TMDB_API_KEY;
@@ -37,7 +37,6 @@ export default function Watch() {
         const t = (v.results || []).find((x) => x.type === "Trailer");
         if (t) setTrailer(t.key);
 
-        // 2. Supabase'dan drive_id ni olish (movieMap o'rniga)
         const { data } = await supabase
           .from("movies")
           .select("drive_id")
@@ -148,7 +147,6 @@ export default function Watch() {
         />
       )}
 
-      {/* Cast va ALL MOVIES qismi o'zgarishsiz qoladi */}
       {cast.length > 0 && (
         <div className="mt-12 sm:mt-16 md:mt-20 mb-10">
           <h2 className="text-xl sm:text-2xl mb-6">Cast</h2>
