@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --lime: #fb0002;
+  --lime-shadow: rgba(251, 0, 2, 0.4);
+
+  --white: #ffffff;
+  --dark96: #131313c7;
+  --second-dark: #acacac;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.d200 {
+  animation-delay: 0.2s;
+}
+.d350 {
+  animation-delay: 0.35s;
+}
+.d500 {
+  animation-delay: 0.5s;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.btn {
+  @apply inline-flex items-center gap-3 rounded-full border-2 transition-all duration-200 z-10;
+  border-color: var(--lime);
+  color: var(--white);
+}
+
+.btn:hover {
+  background-color: #fb0000d0;
+  box-shadow: 0 4px 15px var(--lime-shadow);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
