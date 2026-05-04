@@ -102,7 +102,7 @@ export default function Watch() {
             <div className="flex flex-wrap gap-3 sm:gap-5">
               {driveId && (
                 <a
-  href={`googlechrome://drive.google.com/file/d/${driveId}/view?usp=drivesdk`}
+  href={`https://drive.google.com/file/d/1YNHnbQoMMlXhKYPzvL8IxtkzVzgrag8m/view?usp=drivesdk`}
   target="_blank"
   className="btn bg-[var(--dark96)] py-2 px-5 text-sm sm:text-base flex items-center gap-2"
 >
