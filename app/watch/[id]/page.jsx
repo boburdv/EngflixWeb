@@ -101,15 +101,17 @@ export default function Watch() {
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-5">
               {driveId && (
-                <a
-                  href={`https://drive.google.com/file/d/${driveId}/view?usp=drivesdk`}
-                  target="_self"
-                  className="btn bg-[var(--dark96)] py-2 px-5 text-sm sm:text-base flex items-center gap-2 no-underline"
-                >
-                  <img src="/play-icon.svg" className="w-4 h-4" alt="Play" />{" "}
-                  WATCH MOVIE
-                </a>
-              )}
+  <a
+    href={`https://drive.google.com/file/d/${driveId}/view`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="btn bg-[var(--dark96)] py-2 px-5 text-sm sm:text-base flex items-center gap-2"
+  >
+    <img src="/play-icon.svg" className="w-4 h-4" alt="Play" />{" "}
+    WATCH MOVIE
+  </a>
+)}
+
               {trailer && (
                 <button
                   onClick={() => setOpenTrailer(true)}
